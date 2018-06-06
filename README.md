@@ -13,20 +13,19 @@
 
 **游客 A 评论，站长收到邮件 :** 
 
-默认主题 
+
 ![](https://cdn.jun6.net/201806062247_695.png)
 
-彩虹主题
 ![](https://cdn.jun6.net/201806062252_327.png)
 
 **游客被 @ 收到的邮件 :**
 
-默认主题
 ![](https://cdn.jun6.net/201806062250_552.png)
 
-彩虹主题
-
 ![](https://cdn.jun6.net/201806062255_490.png)
+
+
+> 分别为默认主题和 `rainbow` 彩虹主题
 
 ## 前置工作
 
@@ -53,17 +52,17 @@
 
 #### 必选参数 
 
-* SITE_NAME : 网站名称。
-* SITE_URL : 网站地址, **最后不要加 `/` 。**
-* SMTP_USER : SMTP 服务用户名，一般为邮箱地址。
-* SMTP_PASS : SMTP 密码，一般为授权码，而不是邮箱的登陆密码，请自行查询对应邮件服务商的获取方式
-* SMTP_SERVICE : 邮件服务提供商，支持 `QQ`、`163`、`126`、`Gmail`、`"Yahoo"`、`......`，全部支持请参考 : [Nodemailer Supported services](https://nodemailer.com/smtp/well-known/#supported-services)。
-* SENDER_NAME : 寄件人名称。
+* `SITE_NAME` : 网站名称。
+* `SITE_URL` : 网站地址, **最后不要加 `/` 。**
+* `SMTP_USER` : SMTP 服务用户名，一般为邮箱地址。
+* `SMTP_PASS` : SMTP 密码，一般为授权码，而不是邮箱的登陆密码，请自行查询对应邮件服务商的获取方式
+* `SMTP_SERVICE` : 邮件服务提供商，支持 `QQ`、`163`、`126`、`Gmail`、`"Yahoo"`、`......`，全部支持请参考 : [Nodemailer Supported services](https://nodemailer.com/smtp/well-known/#supported-services)。
+* `SENDER_NAME` : 寄件人名称。
 
 #### 可选参数
 
-* TO_EMAIL : 指定站长收信邮箱，默认值为 `SITE_USER`。用于 SMTP 发件人与站长收件人不一致的情况下使用。
-* TEMPLATE_NAME : 指定主题，默认值为 `default`，可选值为 `rainbow`，即上方演示的彩虹样式，此配置会去寻找 `template\{TEMPLATE_NAME}` 目录下的 `notice.ejs ` 与 `send.ejs` 模板文件，分别用于通知站长和通知游客，另外欢迎提供邮件主题样式。
+* `TO_EMAIL` : 指定站长收信邮箱，默认值为 `SITE_USER`。用于 SMTP 发件人与站长收件人不一致的情况下使用。
+* `TEMPLATE_NAME` : 指定主题，默认值为 `default`，可选值为 `rainbow`，即上方演示的彩虹样式，此配置会去寻找 `template\{TEMPLATE_NAME}` 目录下的 `notice.ejs ` 与 `send.ejs` 模板文件，分别用于通知站长和通知游客，另外欢迎提供邮件主题样式。
 
 #### 配置域名
 
