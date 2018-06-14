@@ -3,13 +3,23 @@ const nodemailer = require('nodemailer');
 const ejs = require('ejs');
 const fs  = require('fs');
 const path = require('path');
-const transporter = nodemailer.createTransport({
-    service : process.env.SMTP_SERVICE,  // see : https://nodemailer.com/smtp/well-known/
+
+let config = {
     auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS
     }
-});
+}
+
+if (process.env.SMTP_SERVICE != null) {
+    config.service = process.env.SMTP_SERVICE;
+} else {
+    config.host = process.env.SMTP_HOST;
+    config.port = parseInt(process.env.SMTP_PORT);
+    config.secure = process.env.SMTP_SECURE === "false" ? false : true;
+}
+
+const transporter = nodemailer.createTransport(config);
 let templateName = process.env.TEMPLATE_NAME ?  process.env.TEMPLATE_NAME : "default";
 let noticeTemplate = ejs.compile(fs.readFileSync(path.resolve(process.cwd(), 'template', templateName, 'notice.ejs'), 'utf8'));
 let sendTemplate = ejs.compile(fs.readFileSync(path.resolve(process.cwd(), 'template', templateName, 'send.ejs'), 'utf8'));
